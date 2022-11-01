@@ -20,6 +20,7 @@
 
 <style lang="postcss">
 	.wrapper > * {
+		@apply relative;
 		height: 100vh;
 		height: 100dvh;
 		background: conic-gradient(
