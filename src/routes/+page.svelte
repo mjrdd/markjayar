@@ -1,15 +1,19 @@
 <script lang="ts">
 	import { MetaTags } from "svelte-meta-tags";
+	import Socials from "./Socials.svelte";
 </script>
 
 <MetaTags title="markjayar" description="Welcome to markjayar" />
 
 <div class="wrapper">
-	<div class="flex flex-col justify-center bg-black text-white">
+	<div class="flex flex-col justify-center bg-black">
 		<div class="my-6 mx-auto w-full max-w-screen-lg p-6 text-center md:text-left">
 			<h1 class="select-none text-2xl font-light tracking-[0.5em] sm:tracking-[1em] md:text-4xl">
 				markjayar
 			</h1>
+			<div class="my-10">
+				<Socials />
+			</div>
 		</div>
 	</div>
 </div>
