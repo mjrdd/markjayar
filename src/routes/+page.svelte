@@ -11,9 +11,7 @@
 		<div class="my-6 mx-auto w-full max-w-screen-lg p-6">
 			<Headline label="markjayar" />
 			<hr class="mx-auto w-1/2 bg-red-400 md:mx-0" />
-			<div class="my-8">
-				<Socials />
-			</div>
+			<Socials />
 		</div>
 	</div>
 </div>
