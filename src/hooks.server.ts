@@ -1,9 +1,7 @@
 import { redirect, type Handle } from "@sveltejs/kit";
 
-const redirects: {
-	[key: string]: string;
-} = {
-	"/youtube": "https://www.youtube.com/channel/UCn_0Rcmn415xw9cDp_py6dA",
+const redirects: Record<string, string> = {
+	"/youtube": "https://www.youtube.com/@mjayar7432",
 	"/twitter": "https://twitter.com/mjayar95",
 	"/instagram": "https://www.instagram.com/mjayardev",
 	"/twitch": "https://www.twitch.tv/markjayar",
@@ -11,12 +9,12 @@ const redirects: {
 	"/tiktok": "https://www.tiktok.com/@mjayar95"
 };
 
-export const handle: Handle = async ({ event, resolve }) => {
+export const handle = (async ({ event, resolve }) => {
 	const path = event.url.pathname;
 
 	if (path in redirects) {
-		throw redirect(303, redirects[path]);
+		throw redirect(308, redirects[path]);
 	}
 
 	return resolve(event);
-};
+}) satisfies Handle;
