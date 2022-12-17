@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { MetaTags } from "svelte-meta-tags";
-	import Headline from "./Headline.svelte";
 	import Socials from "./Socials.svelte";
 </script>
 
@@ -9,8 +8,10 @@
 <div class="wrapper">
 	<div class="flex flex-col justify-center bg-black">
 		<div class="my-6 mx-auto w-full max-w-screen-lg p-6">
-			<Headline label="markjayar" />
-			<hr class="mx-auto w-1/2 bg-red-400 md:mx-0" />
+			<h1
+				class="text-center text-2xl font-light tracking-[1em] md:text-5xl md:leading-normal">
+				markjayar
+			</h1>
 			<Socials />
 		</div>
 	</div>
@@ -61,6 +62,32 @@
 		}
 		75% {
 			background-position: 20% 80%;
+		}
+	}
+
+	h1 {
+		@apply text-transparent;
+		background: linear-gradient(
+			to right,
+			theme("colors.purple.400"),
+			theme("colors.purple.300"),
+			theme("colors.purple.200"),
+			theme("colors.pink.200"),
+			theme("colors.pink.300"),
+			theme("colors.pink.400")
+		);
+		background-clip: text;
+		background-size: 400% 400%;
+		animation: bg-linear-gradient-animation 15s ease infinite;
+	}
+
+	@keyframes bg-linear-gradient-animation {
+		0%,
+		100% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
 		}
 	}
 </style>
