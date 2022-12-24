@@ -1,13 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+	--theme-background-base: 0 0% 98%;
+	--theme-font-color: 0 0% 9%;
 
-@layer base {
-	html {
-		font-family: "Inter", sans-serif;
+	background-color: hsl(var(--theme-background-base));
+	color: hsl(var(--theme-font-color));
+}
 
-		@supports (font-variation-settings: normal) {
-			font-family: "Inter var", sans-serif;
-		}
-	}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	line-height: 1.5;
+	font-family: "Inter", sans-serif;
+}
+
+body {
+	margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
 }

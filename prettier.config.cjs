@@ -3,17 +3,14 @@ const config = {
 	useTabs: true,
 	trailingComma: "none",
 	printWidth: 100,
-	plugins: [
-		// require("prettier-plugin-svelte")
-		require("prettier-plugin-tailwindcss")
-	],
+	bracketSameLine: true,
+	plugins: [require("prettier-plugin-css-order"), require("prettier-plugin-svelte")],
 	pluginSearchDirs: ["."],
 	overrides: [
 		{
 			files: ["*.svelte"],
 			options: {
-				parser: "svelte",
-				bracketSameLine: true
+				parser: "svelte"
 			}
 		}
 	]
