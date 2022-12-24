@@ -4,6 +4,11 @@
 
 	background-color: hsl(var(--theme-background-base));
 	color: hsl(var(--theme-font-color));
+	font-family: "Inter", sans-serif;
+
+	@supports (font-variation-settings: normal) {
+		font-family: "Inter var", sans-serif;
+	}
 }
 
 *,
@@ -14,7 +19,6 @@
 
 html {
 	line-height: 1.5;
-	font-family: "Inter", sans-serif;
 }
 
 body {
