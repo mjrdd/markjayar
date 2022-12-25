@@ -2,13 +2,13 @@
 	--theme-background-base: 0 0% 98%;
 	--theme-font-color: 0 0% 9%;
 
-	background-color: hsl(var(--theme-background-base));
-	color: hsl(var(--theme-font-color));
 	font-family: "Inter", sans-serif;
-
 	@supports (font-variation-settings: normal) {
 		font-family: "Inter var", sans-serif;
 	}
+
+	background-color: hsl(var(--theme-background-base));
+	color: hsl(var(--theme-font-color));
 }
 
 *,
