@@ -16,10 +16,11 @@
 		"@sveltejs/adapter-auto": "^1.0.0",
 		"@sveltejs/adapter-node": "^1.0.0",
 		"@sveltejs/kit": "^1.0.1",
-		"@typescript-eslint/eslint-plugin": "^5.47.0",
-		"@typescript-eslint/parser": "^5.47.0",
+		"@types/three": "^0.147.1",
+		"@typescript-eslint/eslint-plugin": "^5.47.1",
+		"@typescript-eslint/parser": "^5.47.1",
 		"autoprefixer": "^10.4.13",
-		"eslint": "^8.30.0",
+		"eslint": "^8.31.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"postcss": "^8.4.20",
@@ -35,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@mjrdd/inter": "^1.0.0"
+		"@mjrdd/inter": "^1.0.2",
+		"three": "^0.148.0"
 	}
 }
