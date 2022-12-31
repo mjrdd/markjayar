@@ -1,13 +1,6 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import { createBackground } from "$lib/background";
 	import Socials from "./Socials.svelte";
-
-	let canvas: HTMLCanvasElement;
-
-	onMount(() => {
-		createBackground(canvas);
-	});
+	import Background from "./Background.svelte";
 </script>
 
 <svelte:head>
@@ -15,30 +8,27 @@
 	<meta name="description" content="Welcome to markjayar" />
 </svelte:head>
 
-<canvas bind:this={canvas} />
+<Background />
 
 <section>
-	<div>
+	<div class="card">
 		<h1>markjayar</h1>
 		<Socials />
 	</div>
 </section>
 
 <style lang="postcss">
-	canvas {
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-		width: 100vw;
-		height: 100vh;
-	}
-
 	section {
-		display: grid;
-		place-items: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		height: 100vh;
 		color: #fff;
+	}
+
+	.card {
+		background-color: hsla(0 0% 0% / 0.45);
+		padding: 1.2rem;
 	}
 
 	h1 {

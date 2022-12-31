@@ -6,14 +6,7 @@ const config = {
 	bracketSameLine: true,
 	plugins: [require("prettier-plugin-css-order"), require("prettier-plugin-svelte")],
 	pluginSearchDirs: ["."],
-	overrides: [
-		{
-			files: ["*.svelte"],
-			options: {
-				parser: "svelte"
-			}
-		}
-	]
+	overrides: [{ files: "*.svelte", options: { parser: "svelte" } }]
 };
 
 module.exports = config;
