@@ -62,7 +62,7 @@
 		color: inherit;
 
 		&:hover {
-			background-color: hsla(0 0% 0% / 0.1);
+			background-color: hsla(0 0% 100% / 0.25);
 			color: var(--media-color);
 		}
 

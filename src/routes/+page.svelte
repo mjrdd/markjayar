@@ -24,13 +24,15 @@
 		align-items: center;
 		height: 100vh;
 		height: 100dvh;
-		color: #fff;
 	}
 
 	.card {
-		background-color: hsla(0 0% 0% / 0.45);
+		margin: 0 4px;
+		border-radius: 4px;
+		background-color: hsla(0 0% 0% / 0.5);
 		padding: 1rem 1.5rem;
 		width: min(100%, max-content);
+		color: #fff;
 	}
 
 	h1 {

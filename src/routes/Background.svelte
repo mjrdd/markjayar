@@ -38,16 +38,17 @@
 
 			group = new THREE.Group();
 
+			const geometry = new THREE.BoxGeometry(150, 150, 150);
+			const material = new THREE.MeshNormalMaterial();
+
+			let mesh: THREE.Mesh;
+
 			for (let i = 0; i < 500; i++) {
-				const size = Math.random() * 100 + 100;
+				mesh = new THREE.Mesh(geometry, material);
 
-				const geometry = new THREE.BoxGeometry(size, size, size);
-				const material = new THREE.MeshNormalMaterial();
-				const mesh = new THREE.Mesh(geometry, material);
-
-				mesh.position.x = Math.random() * 4000 - 2000;
-				mesh.position.y = Math.random() * 4000 - 2000;
-				mesh.position.z = Math.random() * 4000 - 2000;
+				mesh.position.x = Math.random() * 3000 - 1500;
+				mesh.position.y = Math.random() * 3000 - 1500;
+				mesh.position.z = Math.random() * 3000 - 1500;
 
 				mesh.rotation.x = Math.random() * 2 * Math.PI;
 				mesh.rotation.y = Math.random() * 2 * Math.PI;
@@ -70,8 +71,8 @@
 		function render() {
 			const time = Date.now() * 0.001;
 
-			camera.position.x += (pointerX - camera.position.x) * 0.04;
-			camera.position.y += (pointerY - camera.position.y) * 0.04;
+			camera.position.x += (pointerX - camera.position.x) * 0.01;
+			camera.position.y += (pointerY - camera.position.y) * 0.03;
 			camera.lookAt(scene.position);
 
 			group.rotation.x = Math.sin(time * 0.7) * 0.5;
