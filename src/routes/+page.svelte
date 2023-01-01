@@ -23,25 +23,23 @@
 		justify-content: center;
 		align-items: center;
 		height: 100vh;
+		height: 100dvh;
 		color: #fff;
 	}
 
 	.card {
 		background-color: hsla(0 0% 0% / 0.45);
-		padding: 1.2rem;
+		padding: 1rem 1.5rem;
+		width: min(100%, max-content);
 	}
 
 	h1 {
 		transition: all 0.3s ease-in-out;
 		margin-bottom: 1.5rem;
 		font-weight: 600;
-		font-size: 2rem;
-		letter-spacing: 1em;
+		font-size: min(6vw, 3rem);
+		letter-spacing: 4vw;
 		text-align: center;
-		text-indent: 1em;
-
-		@media (min-width: 768px) {
-			font-size: 3rem;
-		}
+		text-indent: 4vw;
 	}
 </style>

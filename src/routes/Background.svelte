@@ -26,7 +26,7 @@
 
 		function setup() {
 			camera = new THREE.PerspectiveCamera(
-				60,
+				80,
 				window.innerWidth / window.innerHeight,
 				1,
 				10000
@@ -36,17 +36,18 @@
 			scene = new THREE.Scene();
 			scene.background = new THREE.Color(0x2b2b2b);
 
-			const geometry = new THREE.BoxGeometry(100, 100, 100);
-			const material = new THREE.MeshNormalMaterial();
-
 			group = new THREE.Group();
 
 			for (let i = 0; i < 500; i++) {
+				const size = Math.random() * 100 + 100;
+
+				const geometry = new THREE.BoxGeometry(size, size, size);
+				const material = new THREE.MeshNormalMaterial();
 				const mesh = new THREE.Mesh(geometry, material);
 
-				mesh.position.x = Math.random() * 2000 - 1000;
-				mesh.position.y = Math.random() * 2000 - 1000;
-				mesh.position.z = Math.random() * 2000 - 1000;
+				mesh.position.x = Math.random() * 4000 - 2000;
+				mesh.position.y = Math.random() * 4000 - 2000;
+				mesh.position.z = Math.random() * 4000 - 2000;
 
 				mesh.rotation.x = Math.random() * 2 * Math.PI;
 				mesh.rotation.y = Math.random() * 2 * Math.PI;
