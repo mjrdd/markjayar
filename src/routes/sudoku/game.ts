@@ -99,7 +99,6 @@ export function view(canvas: HTMLCanvasElement) {
 
 	return {
 		destroy() {
-			console.log("Unmounting app...");
 			app.destroy(true, { children: true });
 		}
 	};
@@ -113,12 +112,11 @@ export function show(board: number[][]) {
 	}
 }
 
-const a = document.createElement("a");
-a.download = "sudoku.jpg";
+const anchor = document.createElement("a");
+const renderer = new PIXI.Renderer();
+anchor.download = "sudoku.jpg";
 
 export async function download() {
-	if (!app) return;
-
-	a.href = await new PIXI.Renderer().extract.base64(boardContainer, "image/jpeg", 1);
-	a.click();
+	anchor.href = await renderer.extract.base64(boardContainer, "image/jpeg", 1);
+	anchor.click();
 }

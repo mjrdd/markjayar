@@ -61,4 +61,17 @@
 		gap: 1em;
 		width: min(100%, max-content);
 	}
+
+	button {
+		cursor: pointer;
+		border: 1px solid hsl(0 0% 85%);
+		border-radius: 2px;
+		background-color: hsl(0 0% 95%);
+		padding: 0.5rem 0.75rem;
+		font-size: inherit;
+
+		&:hover {
+			background-color: hsl(0 0% 90%);
+		}
+	}
 </style>
