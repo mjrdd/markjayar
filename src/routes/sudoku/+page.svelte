@@ -16,7 +16,7 @@
 
 		worker.postMessage({
 			key: "generate",
-			payload: ~~(Math.random() * 15) + 30
+			payload: ~~(Math.random() * 10) + 40
 		});
 	}
 </script>
@@ -27,7 +27,7 @@
 
 <div class="page">
 	<section>
-		<div>
+		<div class="board-wrapper">
 			<canvas use:view />
 		</div>
 		<aside>
@@ -48,16 +48,24 @@
 
 	section {
 		display: grid;
+		gap: 1rem;
 		margin: 0 1rem;
 	}
 
+	.board-wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
 	canvas {
-		width: 560px;
-		height: 560px;
+		aspect-ratio: 1 / 1;
+		width: min(100%, 520px);
 	}
 
 	aside {
 		display: flex;
+		justify-content: center;
 		gap: 1em;
 		width: min(100%, max-content);
 	}

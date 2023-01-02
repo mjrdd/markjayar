@@ -99,7 +99,7 @@ export function view(canvas: HTMLCanvasElement) {
 
 	return {
 		destroy() {
-			app.destroy(true, { children: true });
+			app.destroy();
 		}
 	};
 }
@@ -114,9 +114,9 @@ export function show(board: number[][]) {
 
 const anchor = document.createElement("a");
 const renderer = new PIXI.Renderer();
-anchor.download = "sudoku.jpg";
 
 export async function download() {
+	anchor.download = `sudoku-${Date.now()}.jpg`;
 	anchor.href = await renderer.extract.base64(boardContainer, "image/jpeg", 1);
 	anchor.click();
 }
