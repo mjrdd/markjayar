@@ -1,6 +1,17 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+	import { createScene } from "./lib/scene3d/background";
 	import Socials from "./Socials.svelte";
-	import Background from "./Background.svelte";
+
+	let canvasElement: HTMLCanvasElement;
+
+	onMount(() => {
+		const { destroy } = createScene(canvasElement);
+
+		return () => {
+			destroy();
+		};
+	});
 </script>
 
 <svelte:head>
@@ -8,7 +19,7 @@
 	<meta name="description" content="Welcome to markjayar" />
 </svelte:head>
 
-<Background />
+<canvas bind:this={canvasElement} />
 
 <section>
 	<div class="card">
@@ -18,6 +29,16 @@
 </section>
 
 <style lang="postcss">
+	canvas {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		background: transparent;
+	}
+
 	section {
 		display: flex;
 		justify-content: center;

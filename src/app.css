@@ -1,14 +1,24 @@
 :root {
-	--theme-background-base: 0 0% 98%;
-	--theme-font-color: 0 0% 9%;
+	--theme-background-base: 0 0% 100%;
+	--theme-background-dark: 221 39% 11%;
+	--theme-color-base: 0 0% 9%;
+	--theme-color-dark: 0 0 98%;
+
+	transition: background-color 0.2s ease-in-out;
+	background-color: hsl(var(--root-background, var(--theme-background-base)));
+	color: hsl(var(--root-color, var(--theme-color-base)));
+	color-scheme: var(--root-color-scheme, normal);
 
 	font-family: "Inter", sans-serif;
 	@supports (font-variation-settings: normal) {
 		font-family: "Inter var", sans-serif;
 	}
 
-	background-color: hsl(var(--theme-background-base));
-	color: hsl(var(--theme-font-color));
+	&:has([data-theme="dark"]) {
+		--root-background: var(--theme-background-dark);
+		--root-color: var(--theme-color-dark);
+		--root-color-scheme: dark;
+	}
 }
 
 *,
@@ -33,4 +43,11 @@ h5,
 h6,
 p {
 	margin: 0;
+}
+
+button,
+select {
+	color: inherit;
+	font-size: inherit;
+	font-family: inherit;
 }
