@@ -1,19 +1,8 @@
 import * as THREE from "three";
 
-export function createScene(canvas: HTMLCanvasElement) {
-	if (!canvas) {
-		throw new Error("Canvas element is undefined");
-	}
-
-	const windowSize = {
-		x: window.innerWidth,
-		y: window.innerHeight
-	};
-
-	const pointerPos = {
-		x: 0,
-		y: 0
-	};
+export function createBackgroundScene(canvas: HTMLCanvasElement) {
+	const windowSize = new THREE.Vector2();
+	const pointerPosition = new THREE.Vector2();
 
 	const renderer = new THREE.WebGLRenderer({
 		canvas,
@@ -21,28 +10,31 @@ export function createScene(canvas: HTMLCanvasElement) {
 	});
 
 	const scene = new THREE.Scene();
-	scene.background = new THREE.Color(0x2e2e2e);
+	scene.background = new THREE.Color(0x2a2a2a);
 
-	const camera = new THREE.PerspectiveCamera(80, windowSize.x / windowSize.y, 1, 10000);
+	const camera = new THREE.PerspectiveCamera(
+		60,
+		window.innerWidth / window.innerHeight,
+		1,
+		10000
+	);
 	camera.position.z = 500;
 
 	const group = new THREE.Group();
-
 	const geometry = new THREE.BoxGeometry(150, 150, 150);
 	const material = new THREE.MeshNormalMaterial();
 
-	let mesh;
+	let mesh: THREE.Mesh;
 
 	for (let i = 0; i < 500; i++) {
 		mesh = new THREE.Mesh(geometry, material);
 
-		mesh.position.set(
-			Math.random() * 3000 - 1500,
-			Math.random() * 3000 - 1500,
-			Math.random() * 3000 - 1500
-		);
+		mesh.position.x = Math.random() * 3000 - 1500;
+		mesh.position.y = Math.random() * 3000 - 1500;
+		mesh.position.z = Math.random() * 3000 - 1500;
 
-		mesh.rotation.set(Math.random() * 2 * Math.PI, Math.random() * 2 * Math.PI, 0);
+		mesh.rotation.x = Math.random() * 2 * Math.PI;
+		mesh.rotation.y = Math.random() * 2 * Math.PI;
 
 		mesh.matrixAutoUpdate = false;
 		mesh.updateMatrix();
@@ -55,15 +47,13 @@ export function createScene(canvas: HTMLCanvasElement) {
 	function render() {
 		const time = Date.now() * 0.001;
 
-		camera.position.x += (pointerPos.x - camera.position.x) * 0.01;
-		camera.position.y += (pointerPos.y - camera.position.y) * 0.03;
+		camera.position.x += (pointerPosition.x - camera.position.x) * 0.01;
+		camera.position.y += (pointerPosition.y - camera.position.y) * 0.03;
 		camera.lookAt(scene.position);
 
-		group.rotation.set(
-			Math.sin(time * 0.7) * 0.5,
-			Math.sin(time * 0.4) * 0.5,
-			Math.sin(time * 0.2) * 0.5
-		);
+		group.rotation.x = Math.sin(time * 0.7) * 0.5;
+		group.rotation.y = Math.sin(time * 0.4) * 0.5;
+		group.rotation.z = Math.sin(time * 0.2) * 0.5;
 
 		renderer.render(scene, camera);
 	}
@@ -72,8 +62,8 @@ export function createScene(canvas: HTMLCanvasElement) {
 	renderer.setAnimationLoop(render);
 
 	function handlePointerMove(event: PointerEvent) {
-		pointerPos.x = event.clientX;
-		pointerPos.y = event.clientY;
+		pointerPosition.x = event.clientX;
+		pointerPosition.y = event.clientY;
 	}
 
 	document.addEventListener("pointermove", handlePointerMove);

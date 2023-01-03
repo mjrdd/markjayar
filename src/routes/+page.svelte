@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { createScene } from "./lib/scene3d/background";
+	import { createBackgroundScene } from "./backgroundScene";
 	import Socials from "./Socials.svelte";
 
 	let canvasElement: HTMLCanvasElement;
+	let scene: ReturnType<typeof createBackgroundScene>;
 
 	onMount(() => {
-		const { destroy } = createScene(canvasElement);
+		scene = createBackgroundScene(canvasElement);
 
 		return () => {
-			destroy();
+			scene.destroy();
 		};
 	});
 </script>

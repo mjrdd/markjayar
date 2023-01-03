@@ -1,13 +1,25 @@
 <script lang="ts">
-	import SudokuWorker from "./worker?worker";
-	import { download, show, view } from "./game";
+	import SudokuWorker from "./sudokuWorker?worker";
+	import { createSudokuRenderer } from "./sudokuRenderer";
+	import { onMount } from "svelte";
 
 	const worker = new SudokuWorker();
 	let loading = false;
 
 	worker.addEventListener("message", (e) => {
-		show(e.data as number[][]);
+		renderer.render(e.data as number[][]);
 		loading = false;
+	});
+
+	let canvasElement: HTMLCanvasElement;
+	let renderer: ReturnType<typeof createSudokuRenderer>;
+
+	onMount(() => {
+		renderer = createSudokuRenderer(canvasElement);
+
+		return () => {
+			renderer.destroy();
+		};
 	});
 
 	function generate() {
@@ -28,11 +40,11 @@
 <div class="page">
 	<section>
 		<div class="board-wrapper">
-			<canvas use:view />
+			<canvas bind:this={canvasElement} />
 		</div>
 		<aside>
 			<button on:click={generate} disabled={loading}>Generate</button>
-			<button on:click={download}>Download</button>
+			<button on:click={renderer.downloadAsImage}>Download</button>
 		</aside>
 	</section>
 </div>
