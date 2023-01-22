@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "start ./pb/pocketbase.exe serve && vite dev",
 		"build": "vite build",
 		"build:node": "set ADAPTER_NODE=true && vite build",
 		"preview": "vite preview",
@@ -39,6 +39,7 @@
 		"@mjrdd/inter": "^1.0.2",
 		"@mjrdd/sudoku": "^2.0.2",
 		"pixi.js": "^7.1.0",
+		"pocketbase": "^0.10.1",
 		"three": "^0.148.0"
 	}
 }

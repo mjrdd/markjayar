@@ -1,4 +1,6 @@
 import { redirect, type Handle } from "@sveltejs/kit";
+import { POCKETBASE_URL } from "$env/static/private";
+import PocketBase from "pocketbase";
 
 const redirects: Record<string, string> = {
 	"/youtube": "https://www.youtube.com/@mjayar7432",
@@ -15,6 +17,8 @@ export const handle = (async ({ event, resolve }) => {
 	if (path in redirects) {
 		throw redirect(308, redirects[path]);
 	}
+
+	event.locals.pb = new PocketBase(POCKETBASE_URL);
 
 	return resolve(event);
 }) satisfies Handle;

@@ -14,6 +14,7 @@ specifiers:
   eslint-config-prettier: ^8.6.0
   eslint-plugin-svelte3: ^4.0.0
   pixi.js: ^7.1.0
+  pocketbase: ^0.10.1
   postcss: ^8.4.21
   postcss-nested: ^6.0.0
   prettier: ^2.8.3
@@ -30,6 +31,7 @@ dependencies:
   '@mjrdd/inter': 1.0.2
   '@mjrdd/sudoku': 2.0.2
   pixi.js: 7.1.0
+  pocketbase: 0.10.1
   three: 0.148.0
 
 devDependencies:
@@ -1781,6 +1783,10 @@ packages:
       '@pixi/spritesheet': 7.1.0
       '@pixi/text': 7.1.0
       '@pixi/text-bitmap': 7.1.0
+    dev: false
+
+  /pocketbase/0.10.1:
+    resolution: {integrity: sha512-FMBhF+9o2AmdKJYbfz2qunnk4Q5/efYMRcukdQF49UfhsIuaSYl39fSPN1l880bYI4XAvDDeySAjK1MlxrK37A==}
     dev: false
 
   /postcss-less/6.0.0_postcss@8.4.21:
