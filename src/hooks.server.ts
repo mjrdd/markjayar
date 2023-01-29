@@ -1,24 +1,26 @@
-import { redirect, type Handle } from "@sveltejs/kit";
+import type { Handle } from "@sveltejs/kit";
 import { POCKETBASE_URL } from "$env/static/private";
-import PocketBase from "pocketbase";
-
-const redirects: Record<string, string> = {
-	"/youtube": "https://www.youtube.com/@mjayar7432",
-	"/twitter": "https://twitter.com/mjayar95",
-	"/instagram": "https://www.instagram.com/mjayardev",
-	"/twitch": "https://www.twitch.tv/markjayar",
-	"/github": "https://github.com/mjrdd",
-	"/tiktok": "https://www.tiktok.com/@mjayar95"
-};
+import PocketBase, { Admin } from "pocketbase";
 
 export const handle = (async ({ event, resolve }) => {
-	const path = event.url.pathname;
+	event.locals.pb = new PocketBase(POCKETBASE_URL);
+	event.locals.pb.authStore.loadFromCookie(event.request.headers.get("cookie") || "");
 
-	if (path in redirects) {
-		throw redirect(308, redirects[path]);
+	try {
+		if (!event.locals.pb.authStore.isValid) {
+			throw 403;
+		}
+
+		event.locals.pb.authStore.model instanceof Admin
+			? event.locals.pb.admins.authRefresh()
+			: event.locals.pb.collection("users").authRefresh();
+	} catch (err) {
+		event.locals.pb.authStore.clear();
 	}
 
-	event.locals.pb = new PocketBase(POCKETBASE_URL);
+	const response = await resolve(event);
 
-	return resolve(event);
+	response.headers.append("set-cookie", event.locals.pb.authStore.exportToCookie());
+
+	return response;
 }) satisfies Handle;
