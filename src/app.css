@@ -1,24 +1,24 @@
 :root {
-	--theme-background-base: 0 0% 100%;
-	--theme-background-dark: 221 39% 11%;
-	--theme-color-base: 0 0% 9%;
-	--theme-color-dark: 0 0 98%;
+	--v-background-hue: 0;
+	--v-background-saturation: 0%;
+	--v-background-lightness: 95%;
 
-	transition: background-color 0.2s ease-in-out;
-	background-color: hsl(var(--root-background, var(--theme-background-base)));
-	color: hsl(var(--root-color, var(--theme-color-base)));
-	color-scheme: var(--root-color-scheme, normal);
+	--v-primary-hue: 224;
+	--v-primary-saturation: 76%;
+	--v-primary-lightness: 48%;
 
-	font-family: "Inter", sans-serif;
-	@supports (font-variation-settings: normal) {
-		font-family: "Inter var", sans-serif;
-	}
+	--v-secondary-hue: 142;
+	--v-secondary-saturation: 76%;
+	--v-secondary-lightness: 36%;
 
-	&:has([data-theme="dark"]) {
-		--root-background: var(--theme-background-dark);
-		--root-color: var(--theme-color-dark);
-		--root-color-scheme: dark;
-	}
+	--v-border-radius: 4px;
+
+	background-color: hsla(
+		var(--v-background-hue),
+		var(--v-background-saturation),
+		var(--v-background-lightness)
+	);
+	color-scheme: normal;
 }
 
 *,
@@ -28,26 +28,13 @@
 }
 
 html {
-	line-height: 1.5;
+	font-family: "Inter", sans-serif;
+
+	@supports (font-variation-settings: normal) {
+		font-family: "Inter var", sans-serif;
+	}
 }
 
 body {
 	margin: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-	margin: 0;
-}
-
-button,
-select {
-	color: inherit;
-	font-size: inherit;
-	font-family: inherit;
 }
