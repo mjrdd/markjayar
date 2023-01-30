@@ -12,12 +12,7 @@ export function createBackgroundScene(canvas: HTMLCanvasElement) {
 	const scene = new THREE.Scene();
 	scene.background = new THREE.Color(0x2a2a2a);
 
-	const camera = new THREE.PerspectiveCamera(
-		60,
-		window.innerWidth / window.innerHeight,
-		1,
-		10000
-	);
+	const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 10000);
 	camera.position.z = 500;
 
 	const group = new THREE.Group();

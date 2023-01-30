@@ -3,9 +3,7 @@ import type { RequestHandler } from "./$types";
 
 export const GET = (async ({ locals, params }) => {
 	try {
-		const record = await locals.pb
-			.collection("official_urls")
-			.getFirstListItem(`name="${params.link}"`);
+		const record = await locals.pb.collection("official_urls").getFirstListItem(`name="${params.link}"`);
 
 		return new Response(null, {
 			status: 303,

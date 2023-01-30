@@ -2,7 +2,7 @@
 const config = {
 	useTabs: true,
 	trailingComma: "none",
-	printWidth: 100,
+	printWidth: 120,
 	bracketSameLine: true,
 	plugins: [require("prettier-plugin-css-order"), require("prettier-plugin-svelte")],
 	pluginSearchDirs: ["."],

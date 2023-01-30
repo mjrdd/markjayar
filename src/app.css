@@ -1,3 +1,5 @@
+@import "./styles/button.css";
+
 :root {
 	--v-background-hue: 0;
 	--v-background-saturation: 0%;
@@ -13,11 +15,7 @@
 
 	--v-border-radius: 4px;
 
-	background-color: hsla(
-		var(--v-background-hue),
-		var(--v-background-saturation),
-		var(--v-background-lightness)
-	);
+	background-color: hsla(var(--v-background-hue) var(--v-background-saturation) var(--v-background-lightness));
 	color-scheme: normal;
 }
 

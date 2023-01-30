@@ -10,15 +10,10 @@
 	<title>Admin | Dashboard</title>
 </svelte:head>
 
-<header class="navbar">
-	<div>
-		<span>Admin</span>
-	</div>
-	<div>
-		<form method="POST" action="/logout?redirectTo=/admin/login" style="display: contents">
-			<button type="submit" class="nav-btn">Log out</button>
-		</form>
-	</div>
+<header>
+	<form method="POST" action="/logout?redirectTo=/admin/login" style="display: contents">
+		<button type="submit" class="btn btn-primary">Log out</button>
+	</form>
 </header>
 
 <div class="app-content">
@@ -49,32 +44,12 @@
 </div>
 
 <style lang="postcss">
-	.navbar {
+	header {
 		display: flex;
 		flex-wrap: nowrap;
-		justify-content: space-between;
-		background-color: blueviolet;
-		height: 4rem;
-		color: white;
-	}
-
-	.navbar > * {
-		display: flex;
+		justify-content: flex-end;
 		align-items: center;
-		padding: 0 1.5rem;
-	}
-
-	.nav-btn {
-		cursor: pointer;
-		border: 1px solid transparent;
-		border-radius: 4px;
-		background-color: transparent;
-		padding: 0.5rem 0.75rem;
-		color: inherit;
-
-		&:hover {
-			background-color: hsla(0 0% 0% / 0.2);
-		}
+		padding: 1rem 1.5rem;
 	}
 
 	.app-content {

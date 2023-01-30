@@ -1,5 +1,6 @@
 import { Admin } from "pocketbase";
 import { redirect } from "@sveltejs/kit";
+import { map, pick } from "lodash-es";
 import type { PageServerLoad } from "./$types";
 
 export const load = (async ({ locals }) => {
@@ -8,18 +9,14 @@ export const load = (async ({ locals }) => {
 	}
 
 	if (!(locals.pb.authStore.model instanceof Admin)) {
-		throw redirect(303, "/");
+		throw redirect(303, `/user/${locals.pb.authStore.model.username}`);
 	}
 
 	try {
 		const records = await locals.pb.collection("official_urls").getList(1, 20);
 
-		const list = records.items.map((record) => {
-			return { id: record.id, name: record.name, url: record.url };
-		});
-
 		return {
-			officialUrls: list
+			officialUrls: map(records.items, (item) => pick(item, ["id", "name", "url"]))
 		};
 	} catch (err) {
 		console.log(err);

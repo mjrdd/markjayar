@@ -28,11 +28,7 @@ export function createSudokuRenderer(canvas: HTMLCanvasElement) {
 			const time = Date.now();
 
 			anchor.download = `sudoku-${time}.jpg`;
-			anchor.href = await (app.renderer as PIXI.Renderer).extract.base64(
-				boardContainer,
-				"image/jpeg",
-				1
-			);
+			anchor.href = await (app.renderer as PIXI.Renderer).extract.base64(boardContainer, "image/jpeg", 1);
 			anchor.click();
 			anchor.remove();
 		},
