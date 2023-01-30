@@ -29,8 +29,6 @@ export const actions: Actions = {
 			if (err instanceof ClientResponseError) {
 				return fail(err.status, { email: data.email, message: err.message });
 			}
-
-			return fail(500, { email: data.email });
 		}
 
 		throw redirect(303, "/admin");
