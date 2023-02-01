@@ -1,0 +1,63 @@
+.auth-form :where(input[type="email"], input[type="password"]) {
+	margin: 0;
+	border: 0;
+	background-color: transparent;
+	padding: 0;
+	width: 100%;
+	font-size: 1rem;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.auth-form.form-container {
+	margin-inline: 1rem;
+	width: 100%;
+	max-width: 28rem;
+}
+
+.auth-form form {
+	display: contents;
+}
+
+.auth-form .form-field {
+	--x-border-color: hsla(var(--v-background-hue) var(--v-background-saturation) var(--v-background-lightness));
+	--x-label-color: inherit;
+
+	display: block;
+	cursor: text;
+	margin-top: 1rem;
+	border: 1px solid var(--x-border-color);
+	border-radius: var(--v-border-radius);
+	background-color: hsla(
+		var(--v-background-hue) var(--v-background-saturation) calc(var(--v-background-lightness) - 8%)
+	);
+	padding: 1rem 1.4rem;
+
+	& > * {
+		display: block;
+	}
+
+	span {
+		margin-bottom: 0.8rem;
+		color: var(--x-label-color);
+		font-weight: 600;
+		text-transform: uppercase;
+
+		&::after {
+			content: " * ";
+			color: hsl(0 100% 50%);
+		}
+	}
+
+	&:has(:focus) {
+		--x-border-color: hsla(var(--v-primary-hue) var(--v-primary-saturation) var(--v-primary-lightness));
+		--x-label-color: var(--x-border-color);
+	}
+}
+
+.auth-form .form-submit-btn {
+	margin-block: 1rem;
+	width: 100%;
+}

@@ -14,9 +14,6 @@
 	--v-secondary-lightness: 36%;
 
 	--v-border-radius: 4px;
-
-	background-color: hsla(var(--v-background-hue) var(--v-background-saturation) var(--v-background-lightness));
-	color-scheme: normal;
 }
 
 *,
@@ -25,14 +22,13 @@
 	box-sizing: border-box;
 }
 
-html {
-	font-family: "Inter", sans-serif;
+body {
+	font-family: var(--v-font-family-default, "Inter"), system-ui, sans-serif;
 
 	@supports (font-variation-settings: normal) {
-		font-family: "Inter var", sans-serif;
+		--v-font-family-default: "Inter var";
 	}
-}
 
-body {
 	margin: 0;
+	background-color: hsla(var(--v-background-hue) var(--v-background-saturation) var(--v-background-lightness));
 }
