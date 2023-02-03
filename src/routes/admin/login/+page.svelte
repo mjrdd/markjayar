@@ -18,6 +18,7 @@
 					name="email"
 					autocomplete="off"
 					required
+					spellcheck="false"
 					value={form?.email ?? ""}
 					aria-autocomplete="none"
 					aria-required="true" />
@@ -52,5 +53,10 @@
 		display: flex;
 		flex-grow: 1;
 		justify-content: center;
+	}
+
+	button[type="submit"] {
+		margin-top: 1.5rem;
+		width: 100%;
 	}
 </style>
