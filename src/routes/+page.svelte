@@ -20,50 +20,13 @@
 	<meta name="description" content="Welcome to markjayar" />
 </svelte:head>
 
-<canvas bind:this={canvasElement} />
+<canvas class="fixed inset-0 -z-10 bg-transparent" bind:this={canvasElement} />
 
-<section>
-	<div class="card">
-		<h1>markjayar</h1>
+<section class="flex h-screen items-center justify-center">
+	<div class="my-1 w-full max-w-max rounded bg-black bg-opacity-50 py-4 px-6 text-white">
+		<h1 class="mb-6 text-center indent-[4vw] text-[min(6vw,3rem)] font-bold tracking-[4vw] transition-all">
+			markjayar
+		</h1>
 		<Socials />
 	</div>
 </section>
-
-<style lang="postcss">
-	canvas {
-		position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		z-index: -1;
-		background: transparent;
-	}
-
-	section {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-		height: 100dvh;
-	}
-
-	.card {
-		margin: 0 4px;
-		border-radius: 4px;
-		background-color: hsla(0 0% 0% / 0.5);
-		padding: 1rem 1.5rem;
-		width: min(100%, max-content);
-		color: #fff;
-	}
-
-	h1 {
-		transition: all 0.3s ease-in-out;
-		margin-bottom: 1.5rem;
-		font-weight: 600;
-		font-size: min(6vw, 3rem);
-		letter-spacing: 4vw;
-		text-align: center;
-		text-indent: 4vw;
-	}
-</style>

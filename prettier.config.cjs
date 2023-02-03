@@ -4,8 +4,12 @@ const config = {
 	trailingComma: "none",
 	printWidth: 120,
 	bracketSameLine: true,
-	plugins: [require("prettier-plugin-css-order"), require("prettier-plugin-svelte")],
-	pluginSearchDirs: ["."],
+	plugins: [
+		require("prettier-plugin-svelte"),
+		require("prettier-plugin-css-order"),
+		require("prettier-plugin-tailwindcss")
+	],
+	pluginSearchDirs: false,
 	overrides: [{ files: "*.svelte", options: { parser: "svelte" } }]
 };
 
