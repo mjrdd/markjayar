@@ -29,10 +29,6 @@ const addUrlSchema = z.object({
 	url: z.string().url()
 });
 
-const deleteRecordSchema = z.object({
-	id: z.string()
-});
-
 export const actions: Actions = {
 	addUrl: async ({ locals, request }) => {
 		const data = Object.fromEntries(await request.formData()) as z.infer<typeof addUrlSchema>;

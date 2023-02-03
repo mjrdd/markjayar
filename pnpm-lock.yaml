@@ -19,7 +19,6 @@ specifiers:
   pixi.js: ^7.1.2
   pocketbase: ^0.10.1
   postcss: ^8.4.21
-  postcss-nested: ^6.0.0
   prettier: ^2.8.3
   prettier-plugin-css-order: ^1.3.0
   prettier-plugin-svelte: ^2.9.0
@@ -56,7 +55,6 @@ devDependencies:
   eslint-config-prettier: 8.6.0_eslint@8.33.0
   eslint-plugin-svelte3: 4.0.0_4omm2ewoudhgnmf7aocafatnc4
   postcss: 8.4.21
-  postcss-nested: 6.0.0_postcss@8.4.21
   prettier: 2.8.3
   prettier-plugin-css-order: 1.3.0_2mydsrxicfimatp4yj7qjmo36i
   prettier-plugin-svelte: 2.9.0_kdmmghgdi3ngrsq6otxkjilbry
