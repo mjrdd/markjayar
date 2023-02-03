@@ -1,5 +1,4 @@
 <script lang="ts">
-	import "$styles/authForm.css";
 	import type { ActionData } from "./$types";
 
 	export let form: ActionData;
@@ -7,56 +6,35 @@
 	$: console.log(form);
 </script>
 
-<div class="page-container">
-	<div class="auth-form form-container">
-		<h1>Admin Login</h1>
+<div class="flex h-screen items-center justify-center bg-gray-100">
+	<div class="w-full max-w-sm rounded-lg bg-white p-8 shadow-lg">
+		<h1 class="mb-6 text-center text-xl">Admin Login</h1>
+
 		<form method="POST">
-			<label class="form-field">
-				<span>Email Address</span>
+			<div class="mb-6">
+				<label for="formInputEmail" class="mb-2 inline-block text-gray-700">Email address</label>
 				<input
 					type="email"
 					name="email"
-					autocomplete="off"
-					required
-					spellcheck="false"
+					id="formInputEmail"
 					value={form?.email ?? ""}
-					aria-autocomplete="none"
-					aria-required="true" />
-			</label>
+					class="m-0 block w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-700 focus:bg-white focus:text-gray-700 focus:outline-none" />
+			</div>
 
-			<label class="form-field">
-				<span>Password</span>
+			<div class="mb-6">
+				<label for="formInputPassword" class="mb-2 inline-block text-gray-700">Password</label>
 				<input
 					type="password"
 					name="password"
-					autocomplete="off"
-					required
-					aria-autocomplete="none"
-					aria-required="true" />
-			</label>
+					id="formInputPassword"
+					class="m-0 block w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-700 focus:bg-white focus:text-gray-700 focus:outline-none" />
+			</div>
 
-			<button type="submit" class="btn-submit">
-				<span>Login</span>
-				<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
-					<path
-						fill="currentColor"
-						fill-rule="evenodd"
-						d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-				</svg>
+			<button
+				type="submit"
+				class="w-full rounded bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg">
+				Log in
 			</button>
 		</form>
 	</div>
 </div>
-
-<style lang="postcss">
-	.page-container {
-		display: flex;
-		flex-grow: 1;
-		justify-content: center;
-	}
-
-	button[type="submit"] {
-		margin-top: 1.5rem;
-		width: 100%;
-	}
-</style>
