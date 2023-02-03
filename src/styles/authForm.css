@@ -1,7 +1,8 @@
-.auth-form :where(input[type="email"], input[type="password"]) {
+.auth-form input {
+	display: block;
 	margin: 0;
 	border: 0;
-	background-color: transparent;
+	background: transparent;
 	padding: 0;
 	width: 100%;
 	font-size: 1rem;
@@ -35,17 +36,14 @@
 	);
 	padding: 1rem 1.4rem;
 
-	& > * {
-		display: block;
-	}
-
 	span {
+		display: block;
 		margin-bottom: 0.8rem;
 		color: var(--x-label-color);
 		font-weight: 600;
 		text-transform: uppercase;
 
-		&::after {
+		&:has(:required)::after {
 			content: " * ";
 			color: hsl(0 100% 50%);
 		}
@@ -57,7 +55,17 @@
 	}
 }
 
-.auth-form .form-submit-btn {
+.auth-form .btn-submit {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 	margin-block: 1rem;
 	width: 100%;
+
+	span {
+		grid-column: 2;
+	}
+
+	svg {
+		grid-column: 3;
+	}
 }
