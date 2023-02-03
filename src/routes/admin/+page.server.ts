@@ -1,7 +1,8 @@
+import { z } from "zod";
 import { Admin } from "pocketbase";
-import { redirect } from "@sveltejs/kit";
 import { map, pick } from "lodash-es";
-import type { PageServerLoad } from "./$types";
+import { fail, redirect } from "@sveltejs/kit";
+import type { Actions, PageServerLoad } from "./$types";
 
 export const load = (async ({ locals }) => {
 	if (!locals.pb.authStore.model) {
@@ -22,3 +23,39 @@ export const load = (async ({ locals }) => {
 		console.log(err);
 	}
 }) satisfies PageServerLoad;
+
+const addUrlSchema = z.object({
+	name: z.string(),
+	url: z.string().url()
+});
+
+const deleteRecordSchema = z.object({
+	id: z.string()
+});
+
+export const actions: Actions = {
+	addUrl: async ({ locals, request }) => {
+		const data = Object.fromEntries(await request.formData()) as z.infer<typeof addUrlSchema>;
+
+		try {
+			addUrlSchema.parse(data);
+			await locals.pb.collection("official_urls").create(data);
+		} catch (err) {
+			console.log(err);
+		}
+	},
+
+	deleteRecord: async ({ locals, url }) => {
+		const id = url.searchParams.get("id");
+
+		if (!id) {
+			return fail(400);
+		}
+
+		try {
+			await locals.pb.collection("official_urls").delete(id);
+		} catch (err) {
+			console.log(err);
+		}
+	}
+};
