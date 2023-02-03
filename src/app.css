@@ -1,40 +1,13 @@
-:root {
-	--v-background-hue: 0;
-	--v-background-saturation: 0%;
-	--v-background-lightness: 95%;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-	--v-primary-hue: 224;
-	--v-primary-saturation: 76%;
-	--v-primary-lightness: 48%;
+@layer base {
+	html {
+		font-family: "Inter", system-ui, sans-serif;
 
-	--v-secondary-hue: 142;
-	--v-secondary-saturation: 76%;
-	--v-secondary-lightness: 36%;
-
-	--v-border-radius: 4px;
-
-	background-color: hsla(
-		var(--v-background-hue),
-		var(--v-background-saturation),
-		var(--v-background-lightness)
-	);
-	color-scheme: normal;
-}
-
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
-
-html {
-	font-family: "Inter", sans-serif;
-
-	@supports (font-variation-settings: normal) {
-		font-family: "Inter var", sans-serif;
+		@supports (font-variation-settings: normal) {
+			font-family: "Inter var", system-ui, sans-serif;
+		}
 	}
-}
-
-body {
-	margin: 0;
 }
