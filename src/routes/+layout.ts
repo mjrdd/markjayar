@@ -1,4 +1,4 @@
-import type { LayoutServerLoad } from "./$types";
+import type { LayoutLoad } from "./$types";
 
 export const load = (async ({ fetch }) => {
 	try {
@@ -8,4 +8,4 @@ export const load = (async ({ fetch }) => {
 	} catch (err) {
 		console.log(err);
 	}
-}) satisfies LayoutServerLoad;
+}) satisfies LayoutLoad;
