@@ -1,11 +1,7 @@
 import type { LayoutServerLoad } from "./$types";
 
-export const load = (async ({ locals, getClientAddress }) => {
-	try {
-		await locals.pb.collection("visitors").create({
-			ip_address: getClientAddress()
-		});
-	} catch (err) {
-		console.log(err);
-	}
+export const load = (({ locals, getClientAddress }) => {
+	locals.pb.collection("visitors").create({
+		ip_address: getClientAddress()
+	});
 }) satisfies LayoutServerLoad;
