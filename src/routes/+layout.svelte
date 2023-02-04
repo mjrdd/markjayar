@@ -1,10 +1,12 @@
 <script lang="ts">
 	import "@mjrdd/inter";
 	import "../app.css";
+	import { ModalWrapper } from "$components/modal";
 </script>
 
 <div class="app">
 	<slot />
+	<ModalWrapper />
 </div>
 
 <style lang="postcss">

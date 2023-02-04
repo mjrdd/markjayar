@@ -1,10 +1,13 @@
 <script lang="ts">
-	import type { PageServerData } from "./$types";
+	import { modalStore, type ModalInit } from "$components/modal";
 	import ModalAddRecord from "./ModalAddRecord.svelte";
+	import type { PageServerData } from "./$types";
 
 	export let data: PageServerData;
 
-	let showModal = false;
+	const addRecordModal: ModalInit = {
+		slot: ModalAddRecord
+	};
 </script>
 
 <svelte:head>
@@ -12,11 +15,9 @@
 </svelte:head>
 
 <div class="container mx-auto p-8">
-	<ModalAddRecord bind:showModal />
-
 	<div class="flex justify-end gap-4">
 		<button
-			on:click={() => (showModal = true)}
+			on:click={() => modalStore.trigger(addRecordModal)}
 			class="inline-block rounded border border-solid border-gray-100 px-6 py-2.5 text-xs font-medium uppercase text-gray-900 shadow-md transition duration-150 ease-in-out hover:bg-gray-200 hover:shadow-lg focus:bg-gray-200 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-200 active:shadow-lg">
 			Add
 		</button>

@@ -7,7 +7,11 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: !process.env.ADAPTER_NODE ? adapterAuto() : adapterNode()
+		adapter: !process.env.ADAPTER_NODE ? adapterAuto() : adapterNode(),
+
+		alias: {
+			"$components/*": "src/components/*"
+		}
 	}
 };
 
