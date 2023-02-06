@@ -23,7 +23,7 @@
 			class="inline-block rounded border border-solid border-gray-100 px-6 py-2.5 text-xs font-medium uppercase text-gray-900 shadow-md transition duration-150 ease-in-out hover:bg-gray-200 hover:shadow-lg focus:bg-gray-200 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-200 active:shadow-lg">
 			Add
 		</button>
-		<form method="POST" action="/logout?redirectTo=/admin/login" class="contents">
+		<form method="POST" action="/api/logout?redirectTo=/admin/login" class="contents">
 			<button
 				type="submit"
 				class="inline-block rounded bg-blue-600 px-6 py-2.5 text-xs font-medium uppercase text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg">

@@ -2,8 +2,6 @@
 	import type { ActionData } from "./$types";
 
 	export let form: ActionData;
-
-	$: console.log(form);
 </script>
 
 <div class="flex h-screen items-center justify-center bg-gray-100">
