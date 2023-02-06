@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { Admin } from "pocketbase";
 import { map, pick } from "lodash-es";
+import { customAlphabet } from "nanoid/async";
 import { fail, redirect } from "@sveltejs/kit";
 import type { Actions, PageServerLoad } from "./$types";
 
@@ -29,12 +30,21 @@ const addUrlSchema = z.object({
 	url: z.string().url()
 });
 
+const ID_CHARS = "0123456789abcdefghijklmnopqrstuvwxyz";
+const ID_LENGTH = 10;
+const nanoid = customAlphabet(ID_CHARS, ID_LENGTH);
+
 export const actions: Actions = {
 	addUrl: async ({ locals, request }) => {
 		const data = Object.fromEntries(await request.formData()) as z.infer<typeof addUrlSchema>;
 
 		try {
 			addUrlSchema.parse(data);
+
+			if (!data.name) {
+				data.name = await nanoid();
+			}
+
 			await locals.pb.collection("official_urls").create(data);
 		} catch (err) {
 			console.log(err);

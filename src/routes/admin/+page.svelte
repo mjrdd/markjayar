@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from "$app/stores";
 	import { modalStore, type ModalInit } from "$components/modal";
 	import ModalAddRecord from "./ModalAddRecord.svelte";
 	import type { PageServerData } from "./$types";
@@ -6,6 +7,7 @@
 	export let data: PageServerData;
 
 	const addRecordModal: ModalInit = {
+		title: "Add record",
 		slot: ModalAddRecord
 	};
 </script>
@@ -57,7 +59,7 @@
 									</td>
 									<td class="px-6 py-4">
 										<form method="POST" action="?/deleteRecord&id={item.id}" class="contents">
-											<button type="submit" class="hover:text-red-600">
+											<button type="submit" class="px-4 py-1.5 hover:text-red-600 ">
 												<svg
 													xmlns="http://www.w3.org/2000/svg"
 													width="1em"
@@ -69,6 +71,16 @@
 												</svg>
 											</button>
 										</form>
+
+										<button
+											type="button"
+											on:click={() =>
+												navigator.clipboard.writeText(
+													`${$page.url.origin}/official/${item.name}`
+												)}
+											class="mr-2 mb-2 rounded border border-gray-300 bg-white px-4 py-1.5 text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700">
+											Copy
+										</button>
 									</td>
 								</tr>
 							{/each}

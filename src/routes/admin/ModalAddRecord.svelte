@@ -1,7 +1,4 @@
 <form method="POST" action="?/addUrl" class="contents">
-	<div class="flex flex-shrink-0 items-center justify-between rounded-t-md p-4">
-		<h5 class="text-xl font-medium leading-normal text-gray-800">Add record</h5>
-	</div>
 	<div class="p-4">
 		<div class="mb-4">
 			<label for="inputName" class="mb-2 inline-block text-gray-700">Name</label>
@@ -17,10 +14,9 @@
 				type="text"
 				name="url"
 				id="inputUrl"
+				required
 				class="m-0 block w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-700 focus:bg-white focus:text-gray-700 focus:outline-none" />
 		</div>
-	</div>
-	<div class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md p-4">
 		<button
 			type="submit"
 			on:click={() => console.log("HELLO")}

@@ -1,20 +1,33 @@
-import type { ComponentType } from "svelte";
+import { customAlphabet } from "nanoid";
 import { writable } from "svelte/store";
+import type { ComponentType } from "svelte";
+
+const ID_CHARS = "0123456789abcdefghijklmnopqrstuvwxyz";
+const ID_LENGTH = 6;
+const nanoid = customAlphabet(ID_CHARS, ID_LENGTH);
 
 export interface ModalInit {
+	id?: string;
+	title: string;
 	slot: ComponentType;
 	onClose?: () => any;
 }
 
+export interface ModalBody extends ModalInit {
+	id: string;
+}
+
 function createModalStore() {
-	const { set, subscribe, update } = writable<ModalInit[]>([]);
+	const { set, subscribe, update } = writable<ModalBody[]>([]);
 
 	return {
 		subscribe,
 
 		trigger(modal: ModalInit) {
+			const id = modal.id ?? nanoid();
+
 			update((store) => {
-				store.push(modal);
+				store.push({ ...modal, id });
 				return store;
 			});
 		},
