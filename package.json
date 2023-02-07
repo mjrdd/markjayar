@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "start ./pb/pocketbase.exe serve && vite dev",
+		"dev": "vite dev",
 		"build": "vite build",
 		"build:node": "set ADAPTER_NODE=true && vite build",
 		"preview": "vite preview",
