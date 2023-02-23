@@ -9,7 +9,7 @@ const config = {
 		require("prettier-plugin-css-order"),
 		require("prettier-plugin-tailwindcss")
 	],
-	pluginSearchDirs: false,
+	pluginSearchDirs: ["."],
 	overrides: [{ files: "*.svelte", options: { parser: "svelte" } }]
 };
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import "@mjrdd/inter";
+	import "inter-ui/inter.css";
 	import "../app.css";
 </script>
 

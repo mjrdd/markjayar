@@ -16,8 +16,8 @@
 </script>
 
 <svelte:head>
-	<title>markjayar</title>
-	<meta name="description" content="Welcome to markjayar" />
+	<title>mjayar</title>
+	<meta name="description" content="Welcome to mjayar!" />
 </svelte:head>
 
 <canvas class="fixed inset-0 -z-10 bg-transparent" bind:this={canvasElement} />
